@@ -3,6 +3,7 @@ $(function(){
 //when ajax is successful, says that $(...) is not a function
     var arrResults;
     var colorsArray;
+    var shuffledArray;
     var auth;
     var terms;
     var near;
@@ -25,12 +26,6 @@ $(function(){
     $('#searchTerms').submit(function(e) {
         e.preventDefault();
         var arrResults = [];
-        console.log(arrResults);
-        var shuffledArray = _.shuffle(colorsArray);
-        console.log(shuffledArray);
-        
-        arrResults = [];
-        colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
 
         auth = {
             //
@@ -90,12 +85,16 @@ $(function(){
             console.log(arrResults);
             for (var x = 0; x < arrResults.length; x++) {
                 var store = arrResults[x];
-                // var headerName = 'title' + x + ' a';
-                // $(headerName).text(store.name);
-                var p = document.createElement('p');
-                p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
-                document.getElementById('container').appendChild(p);
-        }
+                $('#title' + x).addClass(shuffledArray[x]);
+                var headerSelector = '#title' + x + ' a';
+                $(headerSelector).text(store.name);
+
+                var collapseSelector = '#collapse' + x + ' .panel-inner';
+                $(collapseSelector).html("<p>Yelp Rating: " + store.rating+ "<br>Number of Reviews: "+store.review_count+"<br>Phone: "+ store.display_phone + "<br>Website: " + store.url+"</p>");
+                // var p = document.createElement('p');
+                // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
+                // document.getElementById('container').appendChild(p);
+            }
         $('#accordion').fadeIn();
         }
         // }).done(function(response){
@@ -105,6 +104,13 @@ $(function(){
 
     function initialState() {
         $('#accordion').hide();
+        console.log(arrResults);
+        arrResults = [];
+        colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
+        shuffledArray = _.shuffle(colorsArray);
+        console.log(shuffledArray);
+        $('#location').focus();
+        
     }
 });
 // $('#searchTerms').on('submit', function(e) {
