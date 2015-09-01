@@ -12,6 +12,7 @@ $(function(){
     var message;
     var parameterMap;
 
+    initialState();
 
 
 
@@ -21,7 +22,12 @@ $(function(){
         // <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
         // <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
         // <script type="text/javascript">
-    
+    $('#searchTerms').submit(function(e) {
+        e.preventDefault();
+        var arrResults = [];
+        console.log(arrResults);
+        var shuffledArray = _.shuffle(colorsArray);
+        console.log(shuffledArray);
         
         arrResults = [];
         colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
@@ -42,7 +48,7 @@ $(function(){
         };
 
         terms = 'ice+cream';
-        near = 'San+Francisco';
+        near = $('#location').val().split(" ").join("+");
         sort = 0;
 
         accessor = {
@@ -71,8 +77,6 @@ $(function(){
         parameterMap = OAuth.getParameterMap(message.parameters);
         console.log(parameterMap);
     
-
-
         $.ajax({
         'url' : message.action,
         'data' : parameterMap,
@@ -91,26 +95,16 @@ $(function(){
                 var p = document.createElement('p');
                 p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
                 document.getElementById('container').appendChild(p);
-            // var p = document.createElement('p');
-            // p.innerText = data.businesses[0].name;
-            // document.getElementById('container').appendChild(p);
         }
-        $('accordion').fadeIn();
-    }
+        $('#accordion').fadeIn();
+        }
         // }).done(function(response){
         // console.log(response[0].name);
-    });
-
-    $('#searchTerms').submit(function(e) {
-        e.preventDefault();
-        var arrResults = [];
-        console.log(arrResults);
-        var shuffledArray = _.shuffle(colorsArray);
-        console.log(shuffledArray);
+        });
     });
 
     function initialState() {
-        // $('#accordion').hide();
+        $('#accordion').hide();
     }
 });
 // $('#searchTerms').on('submit', function(e) {
