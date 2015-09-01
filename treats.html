@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Treat Yo Self: Ice Cream</title>
+  <!-- Bootstrap doesn't run if this is removed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha256-o0IkLyCCWGBI+ryg6bL44/f8s4cb7+5bncR4LvU57a8= sha512-jptu6vg45XTY9uPX3vD5nHN4vASCN2hHl+fhmgkdd/px/bFHKMXmDXhkNmTiCpKqH6sliEPFakl2KZNav2Zo1Q==" crossorigin="anonymous"> -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+   
+  <link rel="stylesheet" href="style.css">
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="jumbotron" bg-image="Ice-cream.jpg">
+      <h1>Treat Yo Self</h1>
+      <form action="" id="searchTerms">
+        <label for="location">Enter Location Here: </label>
+        <input type="text" id="location">
+        <input type="submit" class="btn btn-success btn-lg" value="Search">
+       <!--  <div id="filter"></div> -->
+       <!-- <input type="submit" value="Search"> -->
+        
+      </form>
+       <button type="button" class="btn btn-success btn-lg" id="geolocator">Find Me</button>
+    </div>
+    </header>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel">
+        <div class="panel-heading red" id="title0">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse0" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title1">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse1" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title2">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse2" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title3">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse3" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title4">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse4" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title5">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse5" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title6">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse6" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title7">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse7" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title8">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse8" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+      <div class="panel panel">
+        <div class="panel-heading" id="title9">
+          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+          Collapsible Group #1
+          </a></h4>
+        </div>
+        <div id="collapse9" class="panel-body collapse">
+          <div class="panel-inner">
+            This is a simple accordion inner content...
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      
+    </div>
+</body>
+</html>

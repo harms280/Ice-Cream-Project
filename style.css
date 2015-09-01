@@ -1,0 +1,99 @@
+body {
+  background-color: #455A64;
+}
+
+.jumbotron {
+  /*background-image: url('http://stuffpoint.com/ice-cream-/image/354562-ice-cream-icecreams-wallpaper.jpg');*/
+  background: linear-gradient(to left, rgba(255,255,255,0),
+  rgba(255,255,255,.65)), url(http://stuffpoint.com/ice-cream-/image/354562-ice-cream-icecreams-wallpaper.jpg);
+  background-size: cover;
+}
+
+.jumbotron h1 {
+  text-shadow: 1px 1px 2px black;
+  font-weight: bolder;
+  color: white;
+}
+
+form {
+  font-size: 20px;
+}
+
+
+div.panel-heading {
+  color: #FFFFFF;
+  padding: 2em;
+}
+
+div.panel-heading.red{
+  background-color: #F44336;
+}
+div.panel-body.red{
+  background-color: #FFCDD2;
+}
+
+div.panel-heading.blue{
+  background-color: #2196F3;
+}
+div.panel-body.blue{
+  background-color: #BBDEFB;
+}
+
+div.panel-heading.purple{
+  background-color: #9C27B0;
+}
+div.panel-body.purple{
+  background-color: #E1BEE7;
+}
+
+div.panel-heading.green{
+  background-color: #4CAF50;
+}
+div.panel-body.green{
+  background-color: #C8E6C9;
+}
+
+div.panel-heading.amber{
+  background-color: #FFC107;
+}
+div.panel-body.amber{
+  background-color: #FFECB3;
+}
+
+div.panel-heading.brown{
+  background-color: #795548;
+}
+div.panel-body.brown{
+  background-color: #D7CCC8;
+}
+
+div.panel-heading.pink{
+  background-color: #E91E63;
+}
+div.panel-body.pink{
+  background-color: #F8BBD0;
+}
+
+div.panel-heading.orange{
+  background-color: #FF5722;
+}
+div.panel-body.orange{
+  background-color: #FFCCBC;
+}
+
+div.panel-heading.blue-grey{
+  background-color: #607D8B;
+}
+div.panel-body.blue-grey{
+  background-color: #CFD8DC;
+}
+
+div.panel-heading.teal{
+  background-color: #009688;
+}
+div.panel-body.teal{
+  background-color: #B2DFDB;
+}
+/*.panel-default {
+  background-color: #D32F2F;
+}*/
