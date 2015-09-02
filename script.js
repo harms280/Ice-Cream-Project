@@ -1,3 +1,13 @@
+//dropdown menu for different types of dessert
+// button in input filed with target to get current location (requires Google Maps)
+//Change background color of h1 tag in website to diagonal rainbow pattern
+//click event on accordion header a tag that generates a google map? or just generate google map for each one
+//play audio of treat yourself on website
+//animation for the accordions on new search, set variable to first search which reveals the options, then fadeOut old text then fadeIn new text
+//throw error when nothing is in search field
+//throw errors for when city is mispelled or offer other options???
+//if a property is undefined then go to a different property(like phone number)
+
 $(function(){
 //jquery is messing with the load of the page, throwing an error for the ajax call, 
 //when ajax is successful, says that $(...) is not a function
@@ -12,6 +22,8 @@ $(function(){
     var parameters;
     var message;
     var parameterMap;
+    var locationLength;
+    var storeLocation;
 
     initialState();
 
@@ -44,7 +56,7 @@ $(function(){
 
         terms = 'ice+cream';
         near = $('#location').val().split(" ").join("+");
-        sort = 0;
+        sort = parseInt($('#sort').val());
 
         accessor = {
             consumerSecret : auth.consumerSecret,
@@ -83,14 +95,32 @@ $(function(){
                 arrResults.push(data.businesses[i]);
             }
             console.log(arrResults);
+
+
             for (var x = 0; x < arrResults.length; x++) {
                 var store = arrResults[x];
                 $('#title' + x).addClass(shuffledArray[x]);
                 var headerSelector = '#title' + x + ' a';
                 $(headerSelector).text(store.name);
 
+                $('#collapse' + x).addClass(shuffledArray[x]);
                 var collapseSelector = '#collapse' + x + ' .panel-inner';
-                $(collapseSelector).html("<p>Yelp Rating: " + store.rating+ "<br>Number of Reviews: "+store.review_count+"<br>Phone: "+ store.display_phone + "<br>Website: " + store.url+"</p>");
+
+                //check location details for proper display and assign value to storeLocation
+                locationLength = store.location.display_address.length;
+                if(locationLength < 3) {
+                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[1];
+                } else if (locationLength < 4) {
+                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[2];
+                } else {
+                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[3];
+                }
+
+                $(collapseSelector).html("<p>Yelp Rating: " + store.rating + 
+                    "<br>Number of Reviews: " + store.review_count + 
+                    "<br> Address: " + storeLocation +
+                    "<br>Phone: "+ store.display_phone + 
+                    "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>");
                 // var p = document.createElement('p');
                 // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
                 // document.getElementById('container').appendChild(p);
