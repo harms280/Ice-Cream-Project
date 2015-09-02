@@ -103,6 +103,14 @@ div.panel-heading.teal{
 div.panel-body.teal{
   background-color: #B2DFDB;
 }
+
+div#map0 {
+  /*background-color: red;*/
+  height: 100px;
+  width: 100px;
+  float: right;
+}
+
 /*.panel-default {
   background-color: #D32F2F;
 }*/

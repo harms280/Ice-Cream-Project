@@ -1,7 +1,6 @@
 //dropdown menu for different types of dessert
 //places with deals (use deals_filter key that takes a bool)
-//use ternary ? operator instead of ifs to test for falsey values
-//useful review in the middle of the div
+//most useful review in the middle of the div
 // button in input filed with target to get current location (requires Google Maps)
 //Change background color of h1 tag in website to diagonal rainbow pattern
 //click event on accordion header a tag that generates a google map? or just generate google map for each one
@@ -9,11 +8,8 @@
 //animation for the accordions on new search, set variable to first search which reveals the options, then fadeOut old text then fadeIn new text
 //throw error when nothing is in search field
 //throw errors for when city is mispelled or offer other options???
-//if a property is undefined then go to a different property(like phone number)
 
 $(function(){
-//jquery is messing with the load of the page, throwing an error for the ajax call, 
-//when ajax is successful, says that $(...) is not a function
     var arrResults;
     var colorsArray;
     var shuffledArray;
@@ -27,6 +23,7 @@ $(function(){
     var parameterMap;
     var locationLength;
     var storeLocation;
+    var store;
 
     initialState();
 
@@ -121,11 +118,29 @@ $(function(){
                     storeLocation = store.location.display_address[0] + (store.location.display_address[3] ? ", " + store.location.display_address[3] : "");
                 }
 
-                $(collapseSelector).html("<p>Yelp Rating: " + store.rating + 
+                //create inner panel text and map
+                $(collapseSelector).html("<p class='pull-left'>Yelp Rating: " + store.rating + 
                     "<br>Number of Reviews: " + store.review_count + 
                     "<br> Address: " + storeLocation +
                     "<br>Phone: "+ (store.display_phone ? store.display_phone : "") + 
-                    "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>");
+                    "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>" +
+                    "<div id='map" + x + "' class='pull-right '></div>");
+
+                //create map in the div
+                function initMap() {
+                  var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
+
+                  var map = new google.maps.Map(document.getElementById('map'+ x ), {
+                    zoom: 15,
+                    center: myLatLng
+                  });
+
+                  var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: store.name
+                  });
+                }
                 // var p = document.createElement('p');
                 // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
                 // document.getElementById('container').appendChild(p);
@@ -147,6 +162,7 @@ $(function(){
         $('#location').focus();
         
     }
+    
 });
 // $('#searchTerms').on('submit', function(e) {
 //         e.preventDefault();
