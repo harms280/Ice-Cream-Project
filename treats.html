@@ -31,25 +31,29 @@
     <div class="jumbotron" bg-image="Ice-cream.jpg">
     <div class="container-fluid">
       <h1>Treat Yo Self</h1>
-      <form class="form-inline" action="javascript:void(0)" id="searchTerms">
+      <form class="form-horizontal" action="javascript:void(0)" id="searchTerms">
         <div class="form-group">
-          <label for="sort">Select sorting method:</label>
-          <select id="sort">
-              <option value="0">Best Match</option>
-              <option value="1">Distance</option>
-              <option value="2">Highest Rated</option>
-          </select>
+          <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="0">Best Match</option>
+                <option value="1">Distance</option>
+                <option value="2">Highest Rated</option>
+            </select>
          </div>
          <div class="form-group">
             <label for="location" class="text-right">Enter Location Here: </label>
             <!-- <div class="col-md-6"> -->
+            <div class="input-group">
               <input type="text" id="location" class="form-control input-lg" placeholder="Enter a city or zip code">
               <span class="input-group-btn">
-                <button class="btn btn-lg" type="button"><i class="glyphicon glyphicon-screenshot"></i></button>
+                <button class="btn btn-lg" type="button" id="geolocator"><span class="glyphicon glyphicon-screenshot"></span></button>
               </span>
+            </div>
             <!-- </div> -->
-          </div> 
-            <input type="submit" class="btn btn-success btn-lg col-md-1" value="Search">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-success btn-lg" value="Search">
+          </div>
         </div>
        <!--  <div id="filter"></div> -->
        <!-- <input type="submit" value="Search"> -->
@@ -61,123 +65,83 @@
     </header>
     <div class="panel-group" id="accordion">
       <div class="panel panel">
-        <div class="panel-heading red" id="title0">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title0" data-toggle="collapse" data-target="#collapse0">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse0" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title1">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title1" data-toggle="collapse" data-target="#collapse1">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse1" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title2">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title2" data-toggle="collapse" data-target="#collapse2">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse2" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title3">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title3" data-toggle="collapse" data-target="#collapse3">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse3" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title4">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title4" data-toggle="collapse" data-target="#collapse4">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse4" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title5">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title5" data-toggle="collapse" data-target="#collapse5">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse5" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title6">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title6" data-toggle="collapse" data-target="#collapse6">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse6" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title7">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title7" data-toggle="collapse" data-target="#collapse7">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse7" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title8">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title8" data-toggle="collapse" data-target="#collapse8">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse8" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
       <div class="panel panel">
-        <div class="panel-heading" id="title9">
-          <h4 class="panel-title"><a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
-          Collapsible Group #1
-          </a></h4>
+        <div class="panel-heading" id="title9" data-toggle="collapse" data-target="#collapse9">
+          <h4 class="panel-title"><a class="panel-toggle"></a></h4>
         </div>
         <div id="collapse9" class="panel-body collapse">
-          <div class="panel-inner">
-            This is a simple accordion inner content...
-          </div>
+          <div class="panel-inner"></div>
         </div>
       </div>
     </div>

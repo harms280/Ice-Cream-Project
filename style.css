@@ -1,5 +1,5 @@
 body {
-  background-color: #455A64;
+  /*background-color: #455A64;*/
 }
 
 .jumbotron {
@@ -31,6 +31,7 @@ label {
 div.panel-heading {
   color: #FFFFFF;
   padding: 2em;
+  cursor: pointer;
 }
 
 div.panel-heading.red{

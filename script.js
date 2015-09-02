@@ -1,4 +1,7 @@
 //dropdown menu for different types of dessert
+//places with deals (use deals_filter key that takes a bool)
+//use ternary ? operator instead of ifs to test for falsey values
+//useful review in the middle of the div
 // button in input filed with target to get current location (requires Google Maps)
 //Change background color of h1 tag in website to diagonal rainbow pattern
 //click event on accordion header a tag that generates a google map? or just generate google map for each one
@@ -108,18 +111,20 @@ $(function(){
 
                 //check location details for proper display and assign value to storeLocation
                 locationLength = store.location.display_address.length;
-                if(locationLength < 3) {
-                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[1];
+                if(locationLength < 2) {
+                    storeLocation = store.location.display_address[0];
+                } else if(locationLength < 3) {
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[1] ? ", " + store.location.display_address[1] : "");
                 } else if (locationLength < 4) {
-                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[2];
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[2] ? ", " + store.location.display_address[2] : "");
                 } else {
-                    storeLocation = store.location.display_address[0] + ", " + store.location.display_address[3];
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[3] ? ", " + store.location.display_address[3] : "");
                 }
 
                 $(collapseSelector).html("<p>Yelp Rating: " + store.rating + 
                     "<br>Number of Reviews: " + store.review_count + 
                     "<br> Address: " + storeLocation +
-                    "<br>Phone: "+ store.display_phone + 
+                    "<br>Phone: "+ (store.display_phone ? store.display_phone : "") + 
                     "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>");
                 // var p = document.createElement('p');
                 // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
