@@ -35,7 +35,7 @@ $(function(){
         // <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
         // <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
         // <script type="text/javascript">
-    $('#searchTerms').submit(function(e) {
+    _$('#searchTerms').submit(function(e) {
         e.preventDefault();
         var arrResults = [];
 
@@ -84,7 +84,7 @@ $(function(){
         parameterMap = OAuth.getParameterMap(message.parameters);
         console.log(parameterMap);
     
-        $.ajax({
+        _$.ajax({
         'url' : message.action,
         'data' : parameterMap,
         'dataType' : 'jsonp',
@@ -124,28 +124,50 @@ $(function(){
                     "<br> Address: " + storeLocation +
                     "<br>Phone: "+ (store.display_phone ? store.display_phone : "") + 
                     "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>" +
-                    "<div id='map" + x + "' class='pull-right '></div>");
+                    "<div id='map" + x + "' class='pull-right map'></div>");
 
                 //create map in the div
-                function initMap() {
-                  var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
+                initMap(store,x);
 
-                  var map = new google.maps.Map(document.getElementById('map'+ x ), {
-                    zoom: 15,
-                    center: myLatLng
-                  });
+                $('#map' +x).on('hidden.bs.collapse', function () {
+                  initMap(store,x);
+                });
+                $('#map'+x).on('shown.bs.collapse', function () {
+                  initMap(store,x); 
+                });
 
-                  var marker = new google.maps.Marker({
-                    position: myLatLng,
-                    map: map,
-                    title: store.name
-                  });
-                }
                 // var p = document.createElement('p');
                 // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
                 // document.getElementById('container').appendChild(p);
             }
-        $('#accordion').fadeIn();
+
+            $(".panel").each(function(index) {
+                $(this).delay(400*index).fadeIn(300);
+            });
+            
+            $('.panel-heading').click(function(e){
+                        var x = $(this).attr('data-index');
+                        console.log(x);
+                        google.maps.event.trigger(map, 'resize'); 
+                        // initMap();
+            });
+
+           // $('.panel-heading').click(function() {
+           //      // var map = $(this).find('.map');
+           //      var center = map.getCenter();
+           //      google.maps.event.trigger(map, "resize");
+           //      map.setCenter(center); 
+           //      });
+
+
+
+            // $(".panel-heading").click(function(i){
+            //     var checkMap = 'map'+
+            //     google.maps.event.trigger('map'+i, 'resize');
+            // });
+            // $('.panel:nth-child('+ (x+1) + ')').fadeIn();
+        // $('#accordion:nth-child(' + (x+1) + ')').fadeIn();
+
         }
         // }).done(function(response){
         // console.log(response[0].name);
@@ -153,7 +175,8 @@ $(function(){
     });
 
     function initialState() {
-        $('#accordion').hide();
+        // $('#accordion').hide();
+        $('.panel').hide();
         console.log(arrResults);
         arrResults = [];
         colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
@@ -162,6 +185,36 @@ $(function(){
         $('#location').focus();
         
     }
+
+    function initMap(store,x) {
+      // var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
+      var myLatLng = new google.maps.LatLng(store.location.coordinate.latitude, store.location.coordinate.longitude);
+
+      map = new google.maps.Map(document.getElementById('map'+ x ), {
+        zoom: 15,
+        center: myLatLng
+      });
+        
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: store.name
+      });
+    
+
+     // google.maps.event.addListener(map, "idle", function(){
+     //        google.maps.event.trigger(map, 'resize'); 
+     //    });
+
+    
+     }
+        // $(window).resize(function() {
+        //     google.maps.event.trigger(map, 'resize');
+        // });
+    // function initMap() {
+
+    //     var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
+    // }
     
 });
 // $('#searchTerms').on('submit', function(e) {

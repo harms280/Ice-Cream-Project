@@ -33,12 +33,18 @@ div.panel-heading {
   padding: 2em;
   cursor: pointer;
 }
+div.panel-inner {
+  height: 100%;
+}
 
 div.panel-heading.red{
   background-color: #F44336;
 }
 div.panel-body.red{
   background-color: #FFCDD2;
+}
+div.panel-heading.red:hover {
+  background-color: #D32F2F;
 }
 
 div.panel-heading.blue{
@@ -47,12 +53,18 @@ div.panel-heading.blue{
 div.panel-body.blue{
   background-color: #BBDEFB;
 }
+div.panel-heading.blue:hover{
+  background-color: #1976D2;
+}
 
 div.panel-heading.purple{
   background-color: #9C27B0;
 }
 div.panel-body.purple{
   background-color: #E1BEE7;
+}
+div.panel-heading.purple:hover {
+  background-color: #7B1FA2;
 }
 
 div.panel-heading.green{
@@ -61,12 +73,18 @@ div.panel-heading.green{
 div.panel-body.green{
   background-color: #C8E6C9;
 }
+div.panel-heading.green:hover {
+  background-color: #388E3C;
+}
 
 div.panel-heading.amber{
   background-color: #FFC107;
 }
 div.panel-body.amber{
   background-color: #FFECB3;
+}
+div.panel-heading.amber:hover {
+  background-color: #FFA000;
 }
 
 div.panel-heading.brown{
@@ -75,12 +93,18 @@ div.panel-heading.brown{
 div.panel-body.brown{
   background-color: #D7CCC8;
 }
+div.panel-heading.brown:hover {
+  background-color: #5D4037;
+}
 
 div.panel-heading.pink{
   background-color: #E91E63;
 }
 div.panel-body.pink{
   background-color: #F8BBD0;
+}
+div.panel-heading.pink:hover {
+  background-color: #C2185B;
 }
 
 div.panel-heading.orange{
@@ -89,12 +113,18 @@ div.panel-heading.orange{
 div.panel-body.orange{
   background-color: #FFCCBC;
 }
+div.panel-heading.orange:hover {
+  background-color: #E64A19;
+}
 
 div.panel-heading.blue-grey{
   background-color: #607D8B;
 }
 div.panel-body.blue-grey{
   background-color: #CFD8DC;
+}
+div.panel-heading.blue-grey:hover {
+  background-color: #455A64;
 }
 
 div.panel-heading.teal{
@@ -103,11 +133,14 @@ div.panel-heading.teal{
 div.panel-body.teal{
   background-color: #B2DFDB;
 }
+div.panel-heading.teal:hover {
+  background-color: #00796B;
+}
 
-div#map0 {
+div.map {
   /*background-color: red;*/
-  height: 100px;
-  width: 100px;
+  height: 300px;
+  width: 400px;
   float: right;
 }
 
