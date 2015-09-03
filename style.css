@@ -5,8 +5,9 @@ body {
 .jumbotron {
   /*background-image: url('http://stuffpoint.com/ice-cream-/image/354562-ice-cream-icecreams-wallpaper.jpg');*/
   background: linear-gradient(to left, rgba(255,255,255,0),
-  rgba(255,255,255,.65)), url(http://stuffpoint.com/ice-cream-/image/354562-ice-cream-icecreams-wallpaper.jpg);
+  rgba(255,255,255,.65)), url('354562-ice-cream-icecreams-wallpaper.jpg');
   background-size: cover;
+  visibility: hidden;
 }
 
 .jumbotron h1 {
@@ -14,6 +15,53 @@ body {
   font-weight: bolder;
   color: white;
 }
+
+/*Animate the jumbotron*/
+.animatedJumbo { 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    -webkit-animation-timing-function: ease-out; 
+    animation-timing-function: ease-out; 
+} 
+
+.animatedJumboText { 
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    -webkit-animation-timing-function: ease-out; 
+    animation-timing-function: ease-out; 
+} 
+
+@-webkit-keyframes fadeInDown { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateY(-20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+
+@keyframes fadeInDown { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+.fadeInDown { 
+    -webkit-animation-name: fadeInDown; 
+    animation-name: fadeInDown; 
+}
+
 
 form {
   font-size: 20px;
@@ -137,13 +185,24 @@ div.panel-heading.teal:hover {
   background-color: #00796B;
 }
 
+.snippet {
+  /*display: inline-block;*/
+}
+
 div.map {
   /*background-color: red;*/
   height: 300px;
   width: 400px;
-  float: right;
+  /*float: right;*/
+  /*display: inline-block;*/
 }
 
+span.snippet {
+  /*margin-left: 2em;*/
+  /*padding-top: 3em;*/
+  font-style: italic;
+  font-weight: bold;
+}
 /*.panel-default {
   background-color: #D32F2F;
 }*/

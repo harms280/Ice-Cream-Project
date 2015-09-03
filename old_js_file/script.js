@@ -1,4 +1,3 @@
-//fadeIn jumbotron
 //dropdown menu for different types of dessert
 //places with deals (use deals_filter key that takes a bool)
 //most useful review in the middle of the div
@@ -26,7 +25,6 @@ $(function(){
     var storeLocation;
     var store;
 
-    // $('.jumbotron').hide();
     initialState();
 
 
@@ -85,7 +83,7 @@ $(function(){
 
         parameterMap = OAuth.getParameterMap(message.parameters);
         console.log(parameterMap);
-
+    
         _$.ajax({
         'url' : message.action,
         'data' : parameterMap,
@@ -98,76 +96,75 @@ $(function(){
             }
             console.log(arrResults);
 
-
+            //original version
             for (var x = 0; x < arrResults.length; x++) {
-            (function(_x){
-                var store = arrResults[_x];
-                $('#title' + _x).addClass(shuffledArray[_x]);
-                var headerSelector = '#title' + _x + ' a';
+                var store = arrResults[x];
+                $('#title' + x).addClass(shuffledArray[x]);
+                var headerSelector = '#title' + x + ' a';
                 $(headerSelector).text(store.name);
 
-                $('#collapse' + _x).addClass(shuffledArray[_x]);
-                var collapseSelector = '#collapse' + _x + ' .panel-inner';
+                $('#collapse' + x).addClass(shuffledArray[x]);
+                var collapseSelector = '#collapse' + x + ' .panel-inner';
 
                 //check location details for proper display and assign value to storeLocation
                 locationLength = store.location.display_address.length;
                 if(locationLength < 2) {
                     storeLocation = store.location.display_address[0];
                 } else if(locationLength < 3) {
-                    storeLocation = store.location.display_address[0] + (store.location.display_address[1] ? ", <br>" + store.location.display_address[1] : "");
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[1] ? ", " + store.location.display_address[1] : "");
                 } else if (locationLength < 4) {
-                    storeLocation = store.location.display_address[0] + (store.location.display_address[2] ? ", <br>" + store.location.display_address[2] : "");
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[2] ? ", " + store.location.display_address[2] : "");
                 } else {
-                    storeLocation = store.location.display_address[0] + (store.location.display_address[3] ? ", <br>" + store.location.display_address[3] : "");
+                    storeLocation = store.location.display_address[0] + (store.location.display_address[3] ? ", " + store.location.display_address[3] : "");
                 }
 
                 //create inner panel text and map
-                $(collapseSelector).html("<div class='container'><div class='row'><div class='col-md-3'><p class='pull-left'>Yelp Rating: " + store.rating + " <img src='" + store.rating_img_url + "'>" +
-                    "<br>Number of Reviews: " + store.review_count +
-                    "<br>" + storeLocation +
-                    "<br>"+ (store.display_phone ? store.display_phone : (store.phone || "")) +
-                    "<br>Website: <a href=" + store.url+">"+store.url+"</a></p></div>" +
-                    "<br><div class='col-md-4'><p><span class='snippet'>\"" + store.snippet_text + "\"</span></p></div>" +
-                    "<div id='map" + _x + "' class='pull-right map'></div></div>");
+                $(collapseSelector).html("<p class='pull-left'>Yelp Rating: " + store.rating + 
+                    "<br>Number of Reviews: " + store.review_count + 
+                    "<br> Address: " + storeLocation +
+                    "<br>Phone: "+ (store.display_phone ? store.display_phone : "") + 
+                    "<br>Website: <a href=" + store.url+">"+store.url+"</a></p>" +
+                    "<div id='map" + x + "' class='pull-right map'></div>");
 
                 //create map in the div
+                // initMap(store,x);
 
-
-
-                    initMap(store,_x);
-                    // $('#collapse'+_x ).on('hidden.bs.collapse', function () {
-                    //     initMap(store,_x);
-                    // });
+                (function(_x){
+                    $('#collapse'+_x ).on('hidden.bs.collapse', function () {
+                        initMap(store,_x);
+                    });
                     $('#collapse'+_x).on('shown.bs.collapse', function () {
                         initMap(store,_x);
                     });
-                })(x);
-
-
-
+                    })(x);
+                // $('#map' +x).on('hidden.bs.collapse', function () {
+                //   initMap(store,x);
+                // });
+                // $('#map'+x).on('shown.bs.collapse', function () {
+                //   initMap(store,x); 
+                // });
 
                 // var p = document.createElement('p');
                 // p.innerText = "Store: "+ store.name + "\n Yelp Rating: " + store.rating+ "\n Number of Reviews: "+store.review_count+"\nPhone: "+ store.display_phone + " Website: " + store.url;
                 // document.getElementById('container').appendChild(p);
             }
 
-
             $(".panel").each(function(index) {
                 $(this).delay(400*index).fadeIn(300);
             });
-
-            // $('.panel-heading').click(function(e){
-            //             var x = $(this).attr('data-index');
-            //             console.log(x);
-                        // google.maps.event.trigger(map, 'resize');
+            
+            $('.panel-heading').click(function(e){
+                        var x = $(this).attr('data-index');
+                        console.log(x);
+            //             google.maps.event.trigger(map, 'resize'); 
                         // initMap();
-            // });
+            });
 
            // $('.panel-heading').click(function() {
            //      // var map = $(this).find('.map');
            //      var center = map.getCenter();
            //      google.maps.event.trigger(map, "resize");
-           //      map.setCenter(center);
+           //      map.setCenter(center); 
            //      });
 
 
@@ -187,42 +184,40 @@ $(function(){
 
     function initialState() {
         // $('#accordion').hide();
-        // $(".jumbotron").hide();
         $('.panel').hide();
         console.log(arrResults);
         arrResults = [];
         colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
         shuffledArray = _.shuffle(colorsArray);
         console.log(shuffledArray);
-        $('.jumbotron').addClass('animatedJumbo fadeInDown');
-        $('#jumboText').addClass('animatedJumboText fadeInDown');
-        $('.jumbotron').css('visibility','visible');
         $('#location').focus();
-
+        
     }
 
     function initMap(store,x) {
       var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
       // var myLatLng = new google.maps.LatLng(store.location.coordinate.latitude, store.location.coordinate.longitude);
+
       map = new google.maps.Map(document.getElementById('map'+ x ), {
-        zoom: 14,
+        zoom: 16,
         center: myLatLng
       });
-
+        
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         title: store.name
       });
-      console.log(myLatLng.lat)
-      console.log(marker)
 
+      console.log(myLatLng.lat);
+      console.log(marker);
+    
 
      // google.maps.event.addListener(map, "idle", function(){
-     //        google.maps.event.trigger(map, 'resize');
+     //        google.maps.event.trigger(map, 'resize'); 
      //    });
 
-
+    
      }
         // $(window).resize(function() {
         //     google.maps.event.trigger(map, 'resize');
@@ -231,7 +226,7 @@ $(function(){
 
     //     var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
     // }
-
+    
 });
 // $('#searchTerms').on('submit', function(e) {
 //         e.preventDefault();
