@@ -1,6 +1,3 @@
-body {
-  /*background-color: #455A64;*/
-}
 
 .jumbotron {
   /*background-image: url('http://stuffpoint.com/ice-cream-/image/354562-ice-cream-icecreams-wallpaper.jpg');*/
@@ -14,6 +11,34 @@ body {
   text-shadow: 1px 1px 2px black;
   font-weight: bolder;
   color: white;
+}
+
+div#loading {
+  text-align: center;
+  display: none;
+}
+
+/*Animate Loading*/
+.animatedLocating { 
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    animation-iteration-count:infinite; 
+    -webkit-animation-iteration-count:infinite; 
+} 
+
+@-webkit-keyframes flash { 
+    0%, 50%, 100% {opacity: 1;} 
+    25%, 75% {opacity: 0;} 
+} 
+@keyframes flash { 
+    0%, 50%, 100% {opacity: 1;} 
+    25%, 75% {opacity: 0;} 
+} 
+.flash { 
+    -webkit-animation-name: flash; 
+    animation-name: flash; 
 }
 
 /*Animate the jumbotron*/
@@ -72,8 +97,8 @@ label {
   text-shadow: 1px 1px 2px black;
 }
 
-#location {
-  /*box-shadow: 1px 1px 2px black;*/
+.panel {
+  display: none;
 }
 
 div.panel-heading {
@@ -185,24 +210,12 @@ div.panel-heading.teal:hover {
   background-color: #00796B;
 }
 
-.snippet {
-  /*display: inline-block;*/
-}
-
 div.map {
-  /*background-color: red;*/
   height: 300px;
   width: 400px;
-  /*float: right;*/
-  /*display: inline-block;*/
 }
 
 span.snippet {
-  /*margin-left: 2em;*/
-  /*padding-top: 3em;*/
   font-style: italic;
   font-weight: bold;
 }
-/*.panel-default {
-  background-color: #D32F2F;
-}*/

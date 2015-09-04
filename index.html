@@ -18,19 +18,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
   <!-- <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha256-o0IkLyCCWGBI+ryg6bL44/f8s4cb7+5bncR4LvU57a8= sha512-jptu6vg45XTY9uPX3vD5nHN4vASCN2hHl+fhmgkdd/px/bFHKMXmDXhkNmTiCpKqH6sliEPFakl2KZNav2Zo1Q==" crossorigin="anonymous"> -->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
   <script>
   // Put jQuery 1.10.2 into noConflict mode.
     var _$ = jQuery.noConflict(true);
   </script>
 
-  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
-  <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+  <script type="text/javascript" src="https://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+  <script type="text/javascript" src="https://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
    
 
   <link rel="stylesheet" href="style.css">
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
@@ -70,6 +70,10 @@
     </div>
     </div>
     </header>
+    <main>
+    <div class="container" id='loading'>
+      <div class="col-md-4 col-md-offset-4 animatedLocating flash"><h2>Locating...</h2></div>
+    </div>
     <div class="panel-group" id="accordion">
       <div class="panel panel">
         <div class="panel-heading" id="title0" data-toggle="collapse" data-target="#collapse0" data-index="0">
@@ -152,6 +156,7 @@
         </div>
       </div>
     </div>
+    </main>
     <div id="container">
       
     </div>
