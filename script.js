@@ -7,7 +7,7 @@
 
 $(function(){
     var arrResults;
-    var colorsArray;
+    var colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
     var shuffledArray;
     var auth;
     var terms;
@@ -34,16 +34,14 @@ $(function(){
         submitLocation();
     });
 
+    //
     function initialState() {
-        // $('#accordion').hide();
-        // $(".jumbotron").hide();
-        // $('h2').hide();
         $('.panel').hide();
         console.log(arrResults);
         arrResults = [];
-        colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
+        // colorsArray = ["red","blue","purple","green","amber","brown","pink","orange","blue-grey","teal"];
         shuffledArray = _.shuffle(colorsArray);
-        console.log(shuffledArray);
+        // console.log(shuffledArray);
         $('.jumbotron').addClass('animatedJumbo fadeInDown');
         $('#jumboText').addClass('animatedJumboText fadeInDown');
         $('.jumbotron').css('visibility','visible');
@@ -51,9 +49,9 @@ $(function(){
 
     }
 
+    //create a map with a marker using store object
     function initMap(store,x) {
       var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
-      // var myLatLng = new google.maps.LatLng(store.location.coordinate.latitude, store.location.coordinate.longitude);
       map = new google.maps.Map(document.getElementById('map'+ x ), {
         zoom: 14,
         center: myLatLng
@@ -64,23 +62,9 @@ $(function(){
         map: map,
         title: store.name
       });
-      // console.log(myLatLng.lat)
-      // console.log(marker)
-
-
-     // google.maps.event.addListener(map, "idle", function(){
-     //        google.maps.event.trigger(map, 'resize');
-     //    });
-
-
-     }
-        // $(window).resize(function() {
-        //     google.maps.event.trigger(map, 'resize');
-        // });
-    // function initMap() {
-
-    //     var myLatLng = {lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude};
-    // }
+    }
+    
+    //get current location using browser navigator.geolocation.getCurrentPosition method and reverse geocode with Google Maps 
     $('#geolocator').click(function(){
         // $('#accordion').prepend('<h3>Locating</h3>');
         if(!currentLocation) {
@@ -95,7 +79,8 @@ $(function(){
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-            } 
+            }
+
             //Get the latitude and the longitude;
             function successFunction(position) {
                 var lat = position.coords.latitude;
@@ -117,7 +102,7 @@ $(function(){
                 var latlng = new google.maps.LatLng(lat, lng);
                 geocoder.geocode({'latLng': latlng}, function(results, status) {
                   if (status == google.maps.GeocoderStatus.OK) {
-                  console.log(results);
+                  // console.log(results);
                   // console.log(results[0].formatted_address);
                   $inputValue = $('#location').val(results[0].formatted_address);
                   while(!($inputValue)) {
@@ -136,16 +121,9 @@ $(function(){
         }
     });
 
-function loadingText() {
-    $('div#loading').fadeIn(1000,function() {
-
-        // while(!($inputValue)) {
-
-        // }
-
-        // $('div#loading').fadeOut(1000);
-    });
-}
+    function loadingText() {
+        $('div#loading').fadeIn(1000);
+    }
 
 
     function submitLocation() {
